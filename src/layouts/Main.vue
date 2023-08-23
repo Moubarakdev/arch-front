@@ -4,16 +4,24 @@ import FeatureSection from "../sections/FeatureSection.vue";
 import DownloadSection from "../sections/DownloadSection.vue";
 import FaqSection from "../sections/FaqSection.vue";
 import SubscribeSection from "../sections/SubscribeSection.vue";
+import Footer from "./Footer.vue";
+import Header from "./header.vue";
 </script>
 
 <template>
-    <HeroSection />
+    <div class="overflow-x-hidden relative">
+        <Header />
 
-    <FeatureSection />
+        <HeroSection />
 
-    <DownloadSection />
+        <FeatureSection />
 
-    <FaqSection />
+        <!-- <DownloadSection /> -->
 
-    <SubscribeSection />
+        <FaqSection />
+
+        <SubscribeSection />
+
+        <Footer />
+    </div>
 </template>
