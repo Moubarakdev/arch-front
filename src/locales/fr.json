@@ -1,0 +1,23 @@
+{
+  "login": "CONNEXION",
+  "languages": {
+    "fr": "Français",
+    "en": "Aglais"
+  },
+  "nav": {
+    "link-1": "Fonctionnalités",
+    "link-2": "Faq",
+    "link-3": "S'inscrire",
+    "link-4": "Contact"
+  },
+  "hero": {
+    "h1": "Sauvegarder Et Sécuriser Avec ARCH",
+    "p": "Une solution adaptée à la gestion et à l'archivage de documents et de médias, offrant des avantages en termes d'organisation, de recherche et de préservation des informations.",
+    "btn1": "Obtenir Sur Chrome",
+    "btn2": "Obtenir sur Firefox"
+  },
+  "features": {
+    "h2": "Fonctionalités",
+    "p": ""
+  }
+}

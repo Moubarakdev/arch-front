@@ -7,9 +7,12 @@ import router from "./router";
 import Button from "./components/Button.vue";
 import LinkButton from "./components/LinkButton.vue";
 
+import i18n from "./i18n";
+
 let app = createApp(App);
 app.use(router);
 app.use(VueSmoothScroll);
+app.use(i18n());
 
 app.component("Button", Button);
 app.component("LinkButton", LinkButton);

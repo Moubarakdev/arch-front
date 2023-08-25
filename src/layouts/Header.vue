@@ -6,6 +6,16 @@ let mobileNav = ref(false);
 let toggleMobileNav = () => {
   mobileNav.value = !mobileNav.value;
 };
+
+import { watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { SUPPORT_LOCALES as supportLocales, setI18nLanguage } from '../i18n';
+
+const { locale } = useI18n({ useScope: 'global' });
+watch(locale, (val) => {
+  setI18nLanguage(val);
+});
+
 </script>
 
 <template>
@@ -17,33 +27,53 @@ let toggleMobileNav = () => {
       </div>
 
       <nav class="flex justify-end flex-col md:flex-row">
-        <!-- Menu Toggler -->
-        <button @click="toggleMobileNav()" type="button" class="flex md:hidden focus:outline-none">
-          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-            <path fill-rule="evenodd"
-              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
-            </path>
-          </svg>
-        </button>
 
         <!-- Desktop Menu -->
         <ul
           class="space-x-10 font-theme-heading font-medium items-center hidden md:flex flex-col space-y-7 md:space-y-0 md:flex-row">
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#features" v-smooth-scroll>Features</a>
+            <a href="#features" v-smooth-scroll>{{ $t('nav.link-1') }}</a>
           </li>
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#faq" v-smooth-scroll>FAQ</a>
+            <a href="#faq" v-smooth-scroll>{{ $t('nav.link-2') }}</a>
           </li>
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#subscribe" v-smooth-scroll>Subscribe</a>
+            <a href="#subscribe" v-smooth-scroll>{{ $t('nav.link-3') }}</a>
+          </li>
+          <li class="uppercase hover:text-theme-secondary transition duration-200">
+            <a href="#contact" v-smooth-scroll>{{ $t('nav.link-4') }}</a>
           </li>
           <li
             class="uppercase bg-theme-secondary px-6 py-2 text-white rounded shadow-md hover:bg-white border-2 border-transparent hover:border-theme-secondary hover:text-theme-secondary cursor-pointer transition duration-200">
-            <router-link to="/login">LOGIN</router-link>
+            <router-link to="/login">{{ $t('login') }}</router-link>
             <!-- <a href="#download-section" v-smooth-scroll>Download</a> -->
           </li>
         </ul>
+
+        <!-- Menu Toggler -->
+        <div class="flex items-center justify-between">
+
+          <div class="order-1 mr-2">
+            <button @click="toggleMobileNav()" type="button" class="flex md:hidden focus:outline-none">
+              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                <path fill-rule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+                </path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="order-2">
+            <select
+              class="App-language uppercase pr-8 py-2 rounded shadow-md hover:bg-white border-transparent hover:border-theme-secondary text-theme-secondary cursor-pointer transition duration-200 focus:ring-theme-secondary"
+              v-model="locale">
+              <option v-for="optionLocale in supportLocales" :key="`locale-${optionLocale}`" :value="optionLocale">{{
+                optionLocale }}
+              </option>
+            </select>
+          </div>
+
+        </div>
       </nav>
     </header>
 

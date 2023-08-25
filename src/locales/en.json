@@ -1,0 +1,24 @@
+{
+  "login": "Login",
+  "languages": {
+    "fr": "French",
+    "en": "English"
+  },
+  "nav": {
+    "link-1": "Features",
+    "link-2": "Faq",
+    "link-3": "Subscribe",
+    "link-4": "Contact"
+  },
+
+  "hero": {
+    "h1": "Save And Secure With ARCH",
+    "p": "A solution for managing and archiving documents and media, offering advantages in terms of organization, retrieval and preservation of information.",
+    "btn1": "Get It On Chrome",
+    "btn2": "Get It On Firefox"
+  },
+  "features": {
+    "h2": "Features",
+    "p": ""
+  }
+}

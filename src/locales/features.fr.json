@@ -1,0 +1,13 @@
+{
+  "features": {
+    "feature1": "Simple Bookmarking",
+    "feature2": "Speedy Searching",
+    "feature3": "Speedy Sharing",
+    "title1": "Bookmark in one click",
+    "title2": "Intelligent search",
+    "title3": "Easy sharing",
+    "description1": "Organize your bookmarks however you like. Our simple drag-n-drop interface gives you complete control over how you manage your favorite websites.",
+    "description2": "Get quick results with our intelligent search feature. Find your bookmarks effortlessly and save time navigating through your favorite websites.",
+    "description3": "Share your bookmarks seamlessly with others. Our intuitive sharing options allow you to collaborate and spread the word about your favorite websites."
+  }
+}
