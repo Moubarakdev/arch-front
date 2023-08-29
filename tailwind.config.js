@@ -14,6 +14,9 @@ export default {
         "theme-dark-blue": "rgb(37, 43, 70)",
         "theme-dark-blue-tp": "rgba(37, 43, 70, 0.9)",
       },
+      backgroundImage: {
+        "bg-login": " url('src/assets/img/register_bg_2.png')",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

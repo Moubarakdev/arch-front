@@ -1,8 +1,12 @@
 {
-  "login": "CONNEXION",
+  "password": "Mot de passe",
+  "sign in": "se connecter",
+  "remember me": "Se souvenir de moi",
+
+  "login": "Connexion",
   "languages": {
     "fr": "Français",
-    "en": "Aglais"
+    "en": "Anglais"
   },
   "nav": {
     "link-1": "Fonctionnalités",
@@ -16,8 +20,80 @@
     "btn1": "Obtenir Sur Chrome",
     "btn2": "Obtenir sur Firefox"
   },
-  "features": {
+  "features_section": {
     "h2": "Fonctionalités",
     "p": ""
+  },
+  "features": [
+    {
+      "id": 1,
+      "name": "Marquage simple",
+      "details": {
+        "imageUrl": "images/illustration-features-tab-1.svg",
+        "title": "Marquer en un clic",
+        "description": "Organisez vos signets comme vous le souhaitez. Notre interface de glisser-déposer simple vous offre un contrôle total sur la gestion de vos sites web favoris.",
+        "link": "#"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Recherche rapide",
+      "details": {
+        "imageUrl": "images/illustration-features-tab-2.svg",
+        "title": "Recherche intelligente",
+        "description": "Obtenez des résultats rapides avec notre fonction de recherche intelligente. Trouvez vos signets sans effort et gagnez du temps en naviguant sur vos sites web favoris.",
+        "link": "#"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Partage rapide",
+      "details": {
+        "imageUrl": "images/illustration-features-tab-3.svg",
+        "title": "Partage facile",
+        "description": "Partagez vos signets en toute simplicité avec les autres. Nos options de partage intuitives vous permettent de collaborer et de faire connaître vos sites web favoris.",
+        "link": "#"
+      }
+    }
+  ],
+  "faq_section": {
+    "h2": "Foire Aux Questions",
+    "p": "Voici quelques-unes de nos FAQ. Si vous avez d'autres questions auxquelles vous aimeriez répondre, n'hésitez pas à nous envoyer un courriel."
+  },
+  "faqs": [
+    {
+      "id": 1,
+      "title": "Qu'est-ce qu'un signet ?",
+      "description": "Un signet est une fonctionnalité qui permet aux utilisateurs de sauvegarder l'URL d'une page web pour y accéder rapidement ultérieurement. Il agit comme un raccourci vers la page web, vous permettant d'y revenir sans avoir à mémoriser ou rechercher l'URL. Les signets sont pratiques pour garder une trace de vos sites web préférés, d'articles importants ou de ressources que vous visitez fréquemment. Ils vous aident à organiser votre contenu en ligne et améliorent votre expérience de navigation."
+    },
+    {
+      "id": 2,
+      "title": "Comment puis-je demander un nouveau navigateur ?",
+      "description": "Pour demander un nouveau navigateur, vous pouvez visiter notre site web officiel et vous rendre dans la section 'Feedback' ou 'Contactez-nous'. Là, vous pouvez soumettre votre demande pour une nouvelle version de navigateur ou une nouvelle fonctionnalité. De plus, vous pouvez participer à nos forums communautaires ou contacter notre équipe de support avec vos suggestions. Nous accordons une grande valeur aux retours des utilisateurs et les utilisons pour améliorer nos produits, donc votre contribution est essentielle pour façonner l'avenir de notre navigateur."
+    },
+    {
+      "id": 3,
+      "title": "Y a-t-il une application mobile disponible ?",
+      "description": "Oui, nous proposons une application mobile pour les plateformes Android et iOS. Vous pouvez télécharger notre application mobile depuis les magasins d'applications respectifs (Google Play Store pour Android et l'App Store pour iOS). L'application mobile vous permet de synchroniser vos signets, l'historique de navigation et d'autres paramètres sur tous vos appareils. Vous pouvez accéder à vos signets en déplacement, et elle offre une expérience de navigation fluide sur vos appareils mobiles et de bureau."
+    },
+    {
+      "id": 4,
+      "title": "Que dire des autres navigateurs basés sur Chromium ?",
+      "description": "Notre fonctionnalité de signet est compatible avec divers navigateurs basés sur Chromium, y compris des navigateurs populaires tels que Google Chrome, Microsoft Edge, Brave, Vivaldi et d'autres. Tant que vous utilisez une version de ces navigateurs qui est 62 ou supérieure, vous pouvez profiter des avantages de notre outil de signet. L'intégration est fluide et vous permet de gérer efficacement vos signets, quel que soit le navigateur Chromium que vous préférez."
+    }
+  ],
+  "read_more": "Lire plus",
+  "newsletter": {
+    "h2": "Restez au courant de ce que nous faisons",
+    "h4": "35 000+ ont déjà adhéré",
+    "subscribe": "S'abonner",
+    "email_error": "Whosps, assurez-vous qu'il s'agit bien d'un courriel"
+  },
+
+  "auth": {
+    "login": {
+      "h6": "Se connecter avec",
+      "small": "Ou se connecter avec ses identifiants"
+    }
   }
 }
