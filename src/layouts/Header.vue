@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useStore } from "vuex"
+
+const store = useStore();
 
 let mobileNav = ref(false);
 
@@ -7,15 +10,9 @@ let toggleMobileNav = () => {
   mobileNav.value = !mobileNav.value;
 };
 
-import { watch } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { SUPPORT_LOCALES as supportLocales, setI18nLanguage } from '../i18n';
-
-const { locale } = useI18n({ useScope: 'global' });
-watch(locale, (val) => {
-  setI18nLanguage(val);
+const loggedIn = computed(() => {
+  return store.getters.loggedIn;
 });
-
 </script>
 
 <template>
@@ -23,36 +20,41 @@ watch(locale, (val) => {
   <div class="container mx-auto px-5">
     <header class="flex justify-between py-12 items-center">
       <div>
-        <a href="/"><img src="/images/logo-bookmark.svg" alt="Site Logo" /></a>
+        <a href="/"><img src="images/logo-bookmark.svg" alt="Site Logo" /></a>
       </div>
 
       <nav class="flex justify-end flex-col md:flex-row">
-
         <!-- Desktop Menu -->
         <ul
           class="space-x-10 font-theme-heading font-medium items-center hidden md:flex flex-col space-y-7 md:space-y-0 md:flex-row">
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#features" v-smooth-scroll>{{ $t('nav.link-1') }}</a>
+            <a href="#features" v-smooth-scroll>
+              Fonctionnalités
+            </a>
           </li>
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#faq" v-smooth-scroll>{{ $t('nav.link-2') }}</a>
+            <a href="#faq" v-smooth-scroll> Faq </a>
           </li>
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#subscribe" v-smooth-scroll>{{ $t('nav.link-3') }}</a>
+            <a href="#subscribe" v-smooth-scroll>S'inscrire</a>
           </li>
           <li class="uppercase hover:text-theme-secondary transition duration-200">
-            <a href="#contact" v-smooth-scroll>{{ $t('nav.link-4') }}</a>
+            <a href="#contact" v-smooth-scroll>Contact</a>
           </li>
-          <li
+          <li v-if="!loggedIn"
             class="uppercase bg-theme-secondary px-6 py-2 text-white rounded shadow-md hover:bg-white border-2 border-transparent hover:border-theme-secondary hover:text-theme-secondary cursor-pointer transition duration-200">
-            <router-link to="/login">{{ $t('login') }}</router-link>
+            <router-link to="/login">se connecter</router-link>
+            <!-- <a href="#download-section" v-smooth-scroll>Download</a> -->
+          </li>
+          <li v-if="loggedIn"
+            class="uppercase bg-theme-secondary px-6 py-2 text-white rounded shadow-md hover:bg-white border-2 border-transparent hover:border-theme-secondary hover:text-theme-secondary cursor-pointer transition duration-200">
+            <router-link to="/logout">Deconnexion</router-link>
             <!-- <a href="#download-section" v-smooth-scroll>Download</a> -->
           </li>
         </ul>
 
         <!-- Menu Toggler -->
         <div class="flex items-center justify-between">
-
           <div class="order-1 mr-2">
             <button @click="toggleMobileNav()" type="button" class="flex md:hidden focus:outline-none">
               <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
@@ -62,17 +64,6 @@ watch(locale, (val) => {
               </svg>
             </button>
           </div>
-
-          <div class="order-2">
-            <select
-              class="App-language uppercase pr-8 py-2 rounded shadow-md hover:bg-white border-transparent hover:border-theme-secondary text-theme-secondary cursor-pointer transition duration-200 focus:ring-theme-secondary"
-              v-model="locale">
-              <option v-for="optionLocale in supportLocales" :key="`locale-${optionLocale}`" :value="optionLocale">{{
-                optionLocale }}
-              </option>
-            </select>
-          </div>
-
         </div>
       </nav>
     </header>
@@ -82,7 +73,7 @@ watch(locale, (val) => {
       <div
         class="absolute px-5 py-12 block z-30 top-0 left-0 w-full h-full bg-gradient-to-b from-theme-dark-blue via-theme-dark-blue-tp to-theme-dark-blue">
         <div class="flex justify-between items-center">
-          <img src="/images/logo-bookmark-white.svg" alt="Logo" />
+          <img src="images/logo-bookmark-white.svg" alt="Logo" />
           <button @click="toggleMobileNav()" type="button" class="focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x text-white"
               viewBox="0 0 16 16">
@@ -94,7 +85,7 @@ watch(locale, (val) => {
         <ul class="uppercase text-white text-md tracking-widest items-center flex flex-col mt-14">
           <li
             class="hover:text-theme-secondary transition duration-200 py-4 border-t border-b border-theme-grayish-blue w-full text-center">
-            <a @click="toggleMobileNav()" href="#features">Features</a>
+            <a @click="toggleMobileNav()" href="#features">Fonctionnalités</a>
           </li>
           <li
             class="hover:text-theme-secondary transition duration-200 py-4 border-b border-theme-grayish-blue w-full text-center">
@@ -104,9 +95,14 @@ watch(locale, (val) => {
             class="hover:text-theme-secondary transition duration-200 py-4 border-b border-theme-grayish-blue w-full text-center">
             <a @click="toggleMobileNav()" href="#subscribe">Subscribe</a>
           </li>
-          <li
+          <li v-if="!loggedIn"
             class="bg-transparent border-2 rounded px-6 py-2 mt-6 w-full text-center cursor-pointer hover:text-theme-secondary transition duration-200">
-            <router-link to="/login" @click="toggleMobileNav()">LOGIN</router-link>
+            <router-link to="/login" @click="toggleMobileNav()">Se connecter</router-link>
+            <!-- <a @click="toggleMobileNav()" href="#download-section">Download</a> -->
+          </li>
+          <li v-if="loggedIn"
+            class="bg-transparent border-2 rounded px-6 py-2 mt-6 w-full text-center cursor-pointer hover:text-theme-secondary transition duration-200">
+            <router-link to="/logout" @click="toggleMobileNav()">Deconnexion</router-link>
             <!-- <a @click="toggleMobileNav()" href="#download-section">Download</a> -->
           </li>
         </ul>
